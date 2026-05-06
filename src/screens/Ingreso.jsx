@@ -15,7 +15,7 @@ export default function Ingreso() {
   const [errors, setErrors]   = useState({})
   const [form, setForm] = useState({
     tipo:'', descripcion:'', esperado:'', recibido:'',
-    fecha: new Date().toISOString().split('T')[0],
+    fecha:new Date().toISOString().split('T')[0],
     quien:'p1', recurrente:false,
   })
   const set = (k,v) => setForm(f => ({...f,[k]:v}))
@@ -51,7 +51,6 @@ export default function Ingreso() {
         <div style={{padding:'0 0 .75rem'}}>
           <QuienToggle value={form.quien} onChange={v => set('quien',v)} nombres={nombres} />
         </div>
-
         <div className="card">
           <div className="ctitle">Detalle</div>
           <Field label="Tipo de ingreso" required error={errors.tipo} style={{marginBottom:12}}>
@@ -82,7 +81,6 @@ export default function Ingreso() {
           <RecurToggle value={form.recurrente} onChange={v => set('recurrente',v)}
                        label="Ingreso recurrente mensual" sub="ej: sueldo fijo" />
         </div>
-
         <SaveButton loading={loading} color="green">Guardar ingreso</SaveButton>
       </form>
     </div>

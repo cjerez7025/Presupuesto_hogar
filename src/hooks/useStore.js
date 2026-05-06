@@ -1,6 +1,3 @@
-// ============================================================
-// hooks/useStore.js — Estado global con Zustand
-// ============================================================
 import { create } from 'zustand'
 import { getNombres, getMesActivo, getResumen } from '../services/api'
 
@@ -8,14 +5,12 @@ const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 
 export const useStore = create((set, get) => ({
-  // Estado
-  nombres  : { p1: 'P1', p2: 'P2' },
-  mes      : MESES[new Date().getMonth()],
-  meses    : MESES,
-  resumen  : null,
-  loading  : true,
+  nombres : { p1: 'P1', p2: 'P2' },
+  mes     : MESES[new Date().getMonth()],
+  meses   : MESES,
+  resumen : null,
+  loading : true,
 
-  // Acciones
   init: async () => {
     try {
       const [nom, mesData] = await Promise.all([getNombres(), getMesActivo()])

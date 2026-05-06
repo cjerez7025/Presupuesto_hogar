@@ -1,6 +1,3 @@
-// src/services/api.js
-// Dev:  llama a proxy local en localhost:3001
-// Prod: llama a /api/proxy (Vercel serverless)
 const PROXY = import.meta.env.DEV
   ? 'http://localhost:3001'
   : '/api/proxy'

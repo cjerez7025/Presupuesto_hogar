@@ -76,18 +76,15 @@ export default function Ahorro() {
             </Field>
           </div>
         </div>
-
         <div className="card">
           <div className="ctitle">División del aporte</div>
           <SplitSlider pct={form.pctP1} onChange={v => set('pctP1',v)}
                        monto={Number(form.aporte)||0} nombres={nombres} />
         </div>
-
         <div className="card">
           <RecurToggle value={form.recurrente} onChange={v => set('recurrente',v)}
                        label="Aporte recurrente mensual" sub="activado por defecto" />
         </div>
-
         <SaveButton loading={loading} color="blue">Guardar aporte</SaveButton>
       </form>
     </div>

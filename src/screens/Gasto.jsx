@@ -15,7 +15,7 @@ export default function Gasto() {
   const [loading, setLoading] = useState(false)
   const [errors, setErrors]   = useState({})
   const [form, setForm] = useState({
-    descripcion:'', fecha: new Date().toISOString().split('T')[0],
+    descripcion:'', fecha:new Date().toISOString().split('T')[0],
     monto:'', categoria:'Transporte', quien:'p1',
     metodoPago:'Débito', pctP1:50, notas:'', recurrente:false,
   })
@@ -49,13 +49,10 @@ export default function Gasto() {
         <button className="back-btn" onClick={() => nav('/')}>←</button>
         <h2>Registrar gasto</h2>
       </div>
-
       <form onSubmit={submit} noValidate>
         <div style={{padding:'0 0 .75rem'}}>
-          <QuienToggle value={form.quien} onChange={v => set('quien',v)}
-                       nombres={nombres} showShared />
+          <QuienToggle value={form.quien} onChange={v => set('quien',v)} nombres={nombres} showShared />
         </div>
-
         <div className="card">
           <div className="ctitle">Detalle</div>
           <Field label="Descripción" required error={errors.descripcion} style={{marginBottom:12}}>
@@ -80,7 +77,6 @@ export default function Gasto() {
             </div>
           </Field>
         </div>
-
         <div className="card">
           <div className="ctitle">Categoría</div>
           <div className="cat-grid">
@@ -90,7 +86,6 @@ export default function Gasto() {
             ))}
           </div>
         </div>
-
         {form.quien === 'sh' && (
           <div className="card">
             <div className="ctitle">División del gasto</div>
@@ -98,12 +93,10 @@ export default function Gasto() {
                          monto={Number(form.monto)||0} nombres={nombres} />
           </div>
         )}
-
         <div className="card">
           <RecurToggle value={form.recurrente} onChange={v => set('recurrente',v)}
                        label="Gasto recurrente mensual" sub="mensual" />
         </div>
-
         <SaveButton loading={loading}>Guardar gasto</SaveButton>
       </form>
     </div>

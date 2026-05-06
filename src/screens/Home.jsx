@@ -10,7 +10,6 @@ export default function Home() {
   const { nombres, mes, resumen, loading, init, setMes } = useStore()
   const nav = useNavigate()
   useEffect(() => { init() }, [])
-
   const r = resumen || {}
   const balTotal = (r.balanceP1||0) + (r.balanceP2||0)
 
@@ -25,7 +24,6 @@ export default function Home() {
           </select>
         </div>
       </div>
-
       <div className="balance-card">
         <div className="balance-label">Balance total hogar</div>
         <div className="balance-amount">{loading ? '...' : fmt(balTotal)}</div>
@@ -40,7 +38,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       <div className="kpi-row">
         <div className="kpi">
           <div className="kpi-label">Gasto hogar</div>
@@ -51,7 +48,6 @@ export default function Home() {
           <div className="kpi-val svc">{fmt((r.ahorroP1||0)+(r.ahorroP2||0))}</div>
         </div>
       </div>
-
       <div className="sec-title">Registrar</div>
       <div className="action-grid">
         {[

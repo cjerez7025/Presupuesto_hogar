@@ -15,7 +15,7 @@ export default function Fijo() {
   const [errors, setErrors]       = useState({})
   const [form, setForm] = useState({
     concepto:'', esperado:'', monto:'',
-    fecha: new Date().toISOString().split('T')[0],
+    fecha:new Date().toISOString().split('T')[0],
     metodoPago:'Débito', pctP1:50, recurrente:true,
   })
   const set = (k,v) => setForm(f => ({...f,[k]:v}))
@@ -26,7 +26,7 @@ export default function Fijo() {
 
   const onConcepto = e => {
     const nombre = e.target.value
-    const item   = fijosList.find(f => f.nombre === nombre)
+    const item = fijosList.find(f => f.nombre === nombre)
     set('concepto', nombre)
     if (item) set('pctP1', Math.round(item.pctP1 * 100))
     setErrors(p => ({...p, concepto:''}))
@@ -97,18 +97,15 @@ export default function Fijo() {
             </Field>
           </div>
         </div>
-
         <div className="card">
           <div className="ctitle">División del costo</div>
           <SplitSlider pct={form.pctP1} onChange={v => set('pctP1',v)}
                        monto={Number(form.monto)||0} nombres={nombres} />
         </div>
-
         <div className="card">
           <RecurToggle value={form.recurrente} onChange={v => set('recurrente',v)}
                        label="Recurrente mensual" sub="activado por defecto" />
         </div>
-
         <SaveButton loading={loading} color="amber">Guardar gasto fijo</SaveButton>
       </form>
     </div>
